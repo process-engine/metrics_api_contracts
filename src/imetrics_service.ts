@@ -38,7 +38,7 @@ export interface IMetricsService {
    * @param correlationId       The correlation id for which to create an onEnter-type metric.
    * @param flowNodeInstanceId  The flow node instance for which to create an onEnter-type metric.
    */
-  writeOnEnter(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
+  writeOnFlowNodeInstanceEnter(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
 
   /**
    * Writes a metric entry for a flow node instance of a specific process model within a correlation.
@@ -48,7 +48,7 @@ export interface IMetricsService {
    * @param correlationId       The correlation id for which to create an onEnter-type metric.
    * @param flowNodeInstanceId  The flow node instance for which to create an onEnter-type metric.
    */
-  writeOnExit(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
+  writeOnFlowNodeInstanceExit(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
 
   /**
    * Writes a metric entry for a flow node instance of a specific process model within a correlation.
@@ -58,7 +58,7 @@ export interface IMetricsService {
    * @param correlationId       The correlation id for which to create an onEnter-type metric.
    * @param flowNodeInstanceId  The flow node instance for which to create an onEnter-type metric.
    */
-  writeOnError(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
+  writeOnFlowNodeInstanceError(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
 
   /**
    * Writes a metric entry for a flow node instance of a process instance.
@@ -68,7 +68,7 @@ export interface IMetricsService {
    * @param correlationId       The correlation id for which to create an onEnter-type metric.
    * @param flowNodeInstanceId  The flow node instance for which to create an onEnter-type metric.
    */
-  writeOnSuspend(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
+  writeOnFlowNodeInstanceSuspend(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
 
   /**
    * Writes a metric entry for a flow node instance of a process instance.
@@ -78,5 +78,5 @@ export interface IMetricsService {
    * @param correlationId       The correlation id for which to create an onEnter-type metric.
    * @param flowNodeInstanceId  The flow node instance for which to create an onEnter-type metric.
    */
-  writeOnResume(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
+  writeOnFlowNodeInstanceResume(processModeldId: string, correlationId: string, flowNodeInstanceId: string): Promise<void>;
 }
