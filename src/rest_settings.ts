@@ -22,15 +22,15 @@ const paths = {
 };
 
 /**
- * Contains the endpoints and various rest parameters used by the metrics api.
+ * Contains the endpoints and various rest parameters used by the Metrics API.
  */
 export const restSettings = {
   /**
-   * A collection of all url parameters employed by the metrics api.
+   * A collection of all URL parameters employed by the Metrics API.
    */
   params: params,
   /**
-   * A collection of all urls employed by the metrics api.
+   * A collection of all URLs employed by the Metrics API.
    */
   paths: paths,
 };
