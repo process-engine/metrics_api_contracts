@@ -2,7 +2,7 @@
 const params = {
   processModelId: ':process_model_id',
   correlationId: ':correlation_id',
-  flowNodeInstanceId: ':flow_node_instance_id',
+  flowNodeId: ':flow_node_id',
 };
 
 const paths = {
@@ -10,15 +10,15 @@ const paths = {
   writeOnProcessFinished: `/correlation/${params.correlationId}/process_model/${params.processModelId}/finished`,
   writeOnProcessError: `/correlation/${params.correlationId}/process_model/${params.processModelId}/error`,
   writeOnFlowNodeInstanceEnter:
-    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node_instance/${params.flowNodeInstanceId}/entered`,
+    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/entered`,
   writeOnFlowNodeInstanceExit:
-    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node_instance/${params.flowNodeInstanceId}/exited`,
+    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/exited`,
   writeOnFlowNodeInstanceError:
-    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node_instance/${params.flowNodeInstanceId}/error`,
+    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/error`,
   writeOnFlowNodeInstanceSuspend:
-    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node_instance/${params.flowNodeInstanceId}/suspended`,
+    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/suspended`,
   writeOnFlowNodeInstanceResume:
-    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node_instance/${params.flowNodeInstanceId}/resumed`,
+    `/correlation/${params.correlationId}/process_model/${params.processModelId}/flow_node/${params.flowNodeId}/resumed`,
 };
 
 /**
