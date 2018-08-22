@@ -42,7 +42,11 @@ export interface IMetricsService {
    * @param flowNodeInstanceId The Flow Node Instance for which to create an onEnter-type metric.
    * @param timestamp          The date and time at which the metrics were recorded.
    */
-  writeOnFlowNodeInstanceEnter(correlationId: string, processModelId: string, flowNodeInstanceId: string, timestamp: Date): Promise<void>;
+  writeOnFlowNodeInstanceEnter(correlationId: string,
+                               processModelId: string,
+                               flowNodeInstanceId: string,
+                               flowNodeId: string,
+                               timestamp: Date): Promise<void>;
 
   /**
    * Writes a metric entry for a Flow Node Instance of a specific Process Model within a Correlation.
@@ -53,7 +57,11 @@ export interface IMetricsService {
    * @param flowNodeInstanceId The Flow Node Instance for which to create an onEnter-type metric.
    * @param timestamp          The date and time at which the metrics were recorded.
    */
-  writeOnFlowNodeInstanceExit(correlationId: string, processModelId: string, flowNodeInstanceId: string, timestamp: Date): Promise<void>;
+  writeOnFlowNodeInstanceExit(correlationId: string,
+                              processModelId: string,
+                              flowNodeInstanceId: string,
+                              flowNodeId: string,
+                              timestamp: Date): Promise<void>;
 
   /**
    * Writes a metric entry for a Flow Node Instance of a specific Process Model within a Correlation.
@@ -64,7 +72,11 @@ export interface IMetricsService {
    * @param flowNodeInstanceId The Flow Node Instance for which to create an onEnter-type metric.
    * @param timestamp          The date and time at which the metrics were recorded.
    */
-  writeOnFlowNodeInstanceError(correlationId: string, processModelId: string, flowNodeInstanceId: string, timestamp: Date): Promise<void>;
+  writeOnFlowNodeInstanceError(correlationId: string,
+                               processModelId: string,
+                               flowNodeInstanceId: string,
+                               flowNodeId: string,
+                               timestamp: Date): Promise<void>;
 
   /**
    * Writes a metric entry for a Flow Node Instance of a process instance.
@@ -75,7 +87,11 @@ export interface IMetricsService {
    * @param flowNodeInstanceId The Flow Node Instance for which to create an onEnter-type metric.
    * @param timestamp          The date and time at which the metrics were recorded.
    */
-  writeOnFlowNodeInstanceSuspend(correlationId: string, processModelId: string, flowNodeInstanceId: string, timestamp: Date): Promise<void>;
+  writeOnFlowNodeInstanceSuspend(correlationId: string,
+                                 processModelId: string,
+                                 flowNodeInstanceId: string,
+                                 flowNodeId: string,
+                                 timestamp: Date): Promise<void>;
 
   /**
    * Writes a metric entry for a Flow Node Instance of a process instance.
@@ -86,5 +102,9 @@ export interface IMetricsService {
    * @param flowNodeInstanceId The Flow Node Instance for which to create an onEnter-type metric.
    * @param timestamp          The date and time at which the metrics were recorded.
    */
-  writeOnFlowNodeInstanceResume(correlationId: string, processModelId: string, flowNodeInstanceId: string, timestamp: Date): Promise<void>;
+  writeOnFlowNodeInstanceResume(correlationId: string,
+                                processModelId: string,
+                                flowNodeInstanceId: string,
+                                flowNodeId: string,
+                                timestamp: Date): Promise<void>;
 }
