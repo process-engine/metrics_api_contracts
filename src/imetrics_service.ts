@@ -35,9 +35,10 @@ export interface IMetricsService {
    * @async
    * @param correlationId  The Correlation ID for which to write the metric.
    * @param processModelId The ProcessModel ID for which to write the metric.
+   * @param error          The error that occured.
    * @param timestamp      The date and time at which the metric was recorded.
    */
-  writeOnProcessError(correlationId: string, processModelId: string, timestamp: Date): Promise<void>;
+  writeOnProcessError(correlationId: string, processModelId: string, error: Error, timestamp: Date): Promise<void>;
 
   /**
    * Writes a metric entry for a FlowNodeInstance of a specific ProcessModel
@@ -90,6 +91,7 @@ export interface IMetricsService {
    * @param flowNodeInstanceId The FlowNodeInstance for which to write the metric.
    * @param processToken       The process token that the FlowNodeInstance had
    *                           at the time the metric was recorded.
+   * @param error              The error that occured.
    * @param timestamp          The date and time at which the metric was recorded.
    */
   writeOnFlowNodeInstanceError(correlationId: string,
@@ -97,6 +99,7 @@ export interface IMetricsService {
                                flowNodeInstanceId: string,
                                flowNodeId: string,
                                processToken: ProcessToken,
+                               error: Error,
                                timestamp: Date): Promise<void>;
 
   /**
