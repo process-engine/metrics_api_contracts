@@ -1,4 +1,5 @@
-import {MetricType} from './metric_type';
+import {MetricMeasurementPoint} from './metric_measurement_point';
+import {ProcessToken} from './process_token';
 
 /**
  * Describes a single metric.
@@ -9,11 +10,12 @@ import {MetricType} from './metric_type';
  * The properties here are ordered in the same manner as they are in the
  * actual log file.
  */
-export class MetricEntry {
+export class Metric {
   public timeStamp: Date;
   public correlationId: string;
   public processModelId: string;
   public flowNodeInstanceId?: string;
   public flowNodeId?: string;
-  public metricType: MetricType;
+  public metricType: MetricMeasurementPoint;
+  public processToken: ProcessToken;
 }

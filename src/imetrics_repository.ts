@@ -1,5 +1,6 @@
-import {MetricEntry} from './metric_entry';
-import {MetricType} from './metric_type';
+import {Metric} from './metric';
+import {MetricMeasurementPoint} from './metric_measurement_point';
+import {ProcessToken} from './process_token';
 
 /**
  * Contains functions for writing and retrieving content from logfiles,
@@ -16,7 +17,7 @@ export interface IMetricsRepository {
    *                       the metrics.
    * @returns              A list of metrics.
    */
-  readMetricsForProcessModel(processModelId: string): Promise<Array<MetricEntry>>;
+  readMetricsForProcessModel(processModelId: string): Promise<Array<Metric>>;
 
   /**
    * Writes a metric for a specific ProcessModel of a Correlation.
@@ -26,14 +27,17 @@ export interface IMetricsRepository {
    *                       ProcessModel belongs.
    * @param processModelId The ID of ProcessModel for which to create a
    *                       metric.
-   * @param metricType     The type of metric (OnEnter, OnExit, etc).
-   * @param timestamp      Optional: The timestamp to use for the metric.
+   * @param metricType     The type of metric (OnEnter, OnExit, onError, etc).
+   * @param timestamp      The timestamp to use for the metric.
+   * @param error          Optional: When recording an error, this stores the
+   *                       error that was encountered.
    *                       Defaults to "now".
    */
   writeMetricForProcessModel(correlationId: string,
                              processModelId: string,
-                             metricType: MetricType,
-                             timestamp?: Date): Promise<void>;
+                             metricType: MetricMeasurementPoint,
+                             timestamp: Date,
+                             error?: Error): Promise<void>;
 
   /**
    * Writes a metric for a specific FlowNode of a ProcessModel within a
@@ -49,13 +53,19 @@ export interface IMetricsRepository {
    * @param flowNodeId         The ID of FlowNode for which to create a
    *                           metric.
    * @param metricType         The type of metric (OnEnter, OnExit, etc).
-   * @param timestamp          Optional: The timestamp to use for the metric.
+   * @param processToken       The process token that the FlowNodeInstance had
+   *                           at the time the metric was recorded.
+   * @param timestamp          The timestamp to use for the metric.
+   * @param error              Optional: When recording an error, this stores
+   *                           the error that was encountered.
    *                           Defaults to "now".
    */
   writeMetricForFlowNode(correlationId: string,
                          processModelId: string,
                          flowNodeInstanceId: string,
                          flowNodeId: string,
-                         metricType: MetricType,
-                         timestamp?: Date): Promise<void>;
+                         metricType: MetricMeasurementPoint,
+                         processToken: ProcessToken,
+                         timestamp: Date,
+                         error?: Error): Promise<void>;
 }

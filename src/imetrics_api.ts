@@ -4,7 +4,7 @@ import {ProcessToken} from './process_token';
  * Contains functions for recording metrics relating to
  * ProcessInstances and FlowNodeInstances.
  */
-export interface IMetricsService {
+export interface IMetricsApi {
 
   /**
    * Writes a metric entry for a ProcessModel within a Correlation.
