@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 import {MetricMeasurementPoint} from './metric_measurement_point';
 import {ProcessToken} from './process_token';
 
@@ -11,7 +13,7 @@ import {ProcessToken} from './process_token';
  * actual log file.
  */
 export class Metric {
-  public timeStamp: Date;
+  public timeStamp: moment.Moment;
   public correlationId: string;
   public processModelId: string;
   public flowNodeInstanceId?: string;
