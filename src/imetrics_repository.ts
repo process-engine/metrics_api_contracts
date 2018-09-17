@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 import {Metric} from './metric';
 import {MetricMeasurementPoint} from './metric_measurement_point';
 import {ProcessToken} from './process_token';
@@ -36,7 +38,7 @@ export interface IMetricsRepository {
   writeMetricForProcessModel(correlationId: string,
                              processModelId: string,
                              metricType: MetricMeasurementPoint,
-                             timestamp: Date,
+                             timestamp: moment.Moment,
                              error?: Error): Promise<void>;
 
   /**
@@ -66,6 +68,6 @@ export interface IMetricsRepository {
                          flowNodeId: string,
                          metricType: MetricMeasurementPoint,
                          processToken: ProcessToken,
-                         timestamp: Date,
+                         timestamp: moment.Moment,
                          error?: Error): Promise<void>;
 }
