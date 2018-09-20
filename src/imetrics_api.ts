@@ -1,10 +1,12 @@
+import * as moment from 'moment';
+
 import {ProcessToken} from './process_token';
 
 /**
  * Contains functions for recording metrics relating to
  * ProcessInstances and FlowNodeInstances.
  */
-export interface IMetricsService {
+export interface IMetricsApi {
 
   /**
    * Writes a metric entry for a ProcessModel within a Correlation.
@@ -15,7 +17,7 @@ export interface IMetricsService {
    * @param processModelId The ProcessModel ID for which to write the metric.
    * @param timestamp      The date and time at which the metric was recorded.
    */
-  writeOnProcessStarted(correlationId: string, processModelId: string, timestamp: Date): Promise<void>;
+  writeOnProcessStarted(correlationId: string, processModelId: string, timestamp: moment.Moment): Promise<void>;
 
   /**
    * Writes a metric entry for a ProcessModel within a Correlation.
@@ -26,7 +28,7 @@ export interface IMetricsService {
    * @param processModelId The ProcessModel ID for which to write the metric.
    * @param timestamp      The date and time at which the metric was recorded.
    */
-  writeOnProcessFinished(correlationId: string, processModelId: string, timestamp: Date): Promise<void>;
+  writeOnProcessFinished(correlationId: string, processModelId: string, timestamp: moment.Moment): Promise<void>;
 
   /**
    * Writes a metric entry for a ProcessModel within a Correlation.
@@ -38,7 +40,7 @@ export interface IMetricsService {
    * @param error          The error that occured.
    * @param timestamp      The date and time at which the metric was recorded.
    */
-  writeOnProcessError(correlationId: string, processModelId: string, error: Error, timestamp: Date): Promise<void>;
+  writeOnProcessError(correlationId: string, processModelId: string, error: Error, timestamp: moment.Moment): Promise<void>;
 
   /**
    * Writes a metric entry for a FlowNodeInstance of a specific ProcessModel
@@ -58,7 +60,7 @@ export interface IMetricsService {
                                flowNodeInstanceId: string,
                                flowNodeId: string,
                                processToken: ProcessToken,
-                               timestamp: Date): Promise<void>;
+                               timestamp: moment.Moment): Promise<void>;
 
   /**
    * Writes a metric entry for a FlowNodeInstance of a specific ProcessModel
@@ -78,7 +80,7 @@ export interface IMetricsService {
                               flowNodeInstanceId: string,
                               flowNodeId: string,
                               processToken: ProcessToken,
-                              timestamp: Date): Promise<void>;
+                              timestamp: moment.Moment): Promise<void>;
 
   /**
    * Writes a metric entry for a FlowNodeInstance of a specific ProcessModel
@@ -100,7 +102,7 @@ export interface IMetricsService {
                                flowNodeId: string,
                                processToken: ProcessToken,
                                error: Error,
-                               timestamp: Date): Promise<void>;
+                               timestamp: moment.Moment): Promise<void>;
 
   /**
    * Writes a metric entry for a FlowNodeInstance of a ProcessInstance.
@@ -119,7 +121,7 @@ export interface IMetricsService {
                                  flowNodeInstanceId: string,
                                  flowNodeId: string,
                                  processToken: ProcessToken,
-                                 timestamp: Date): Promise<void>;
+                                 timestamp: moment.Moment): Promise<void>;
 
   /**
    * Writes a metric entry for a FlowNodeInstance of a ProcessInstance.
@@ -138,5 +140,5 @@ export interface IMetricsService {
                                 flowNodeInstanceId: string,
                                 flowNodeId: string,
                                 processToken: ProcessToken,
-                                timestamp: Date): Promise<void>;
+                                timestamp: moment.Moment): Promise<void>;
 }
