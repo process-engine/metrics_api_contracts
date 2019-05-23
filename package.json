@@ -26,15 +26,18 @@
   },
   "devDependencies": {
     "@essential-projects/eslint-config": "^1.0.0",
-    "@types/node": "^10.12.2",
     "eslint": "^5.16.0",
     "tsconfig": "^7.0.0",
     "typescript": "^3.4.5"
   },
   "scripts": {
-    "build": "gulp build",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && npm run build-commonjs && npm run build-amd",
+    "build-commonjs": "tsc",
+    "build-amd": "tsc --module amd --outDir ./dist/amd",
     "prepare": "npm run build",
-    "lint": "gulp lint",
-    "test": "gulp test"
+    "lint": "eslint src/*.ts",
+    "lint-fix": "eslint --fix src/*.ts",
+    "test": ":"
   }
 }
