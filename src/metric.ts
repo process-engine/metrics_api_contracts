@@ -1,7 +1,6 @@
 import * as moment from 'moment';
 
 import {MetricMeasurementPoint} from './metric_measurement_point';
-import {ProcessToken} from './process_token';
 
 /**
  * Describes a single metric.
@@ -16,10 +15,13 @@ export class Metric {
 
   public timeStamp: moment.Moment;
   public correlationId: string;
+  public processInstanceId: string;
   public processModelId: string;
   public flowNodeInstanceId?: string;
   public flowNodeId?: string;
   public metricType: MetricMeasurementPoint;
-  public processToken: ProcessToken;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public tokenPayload: any;
+  public error?: Error;
 
 }
